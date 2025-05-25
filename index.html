@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Slugly - The most advanced URL slug generator online. Create perfect, SEO-friendly slugs in real-time with multiple customization options.">
+    <meta name="keywords" content="slug generator, url slug, seo tool, url converter, web development tool, modern slug generator">
+    <title>Slugly | Modern URL Slug Generator for SEO Optimization</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <span class="logo-icon">🔗</span>
+                        <h1>Slugly</h1>
+                    </div>
+                    <nav class="main-nav">
+                        <a href="#features" class="nav-link">Features</a>
+                        <a href="#how-it-works" class="nav-link">How It Works</a>
+                        <a href="#documentation" class="nav-link">Docs</a>
+                        <a href="https://github.com/theriturajps" target="_blank" class="nav-link github-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </nav>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h2 class="hero-title">Craft Perfect URL Slugs</h2>
+                            <p class="hero-subtitle">The most advanced slug generator with real-time processing and comprehensive SEO optimization</p>
+                            <div class="hero-badges">
+                                <span class="badge"><i class="fas fa-bolt"></i> Instant Results</span>
+                                <span class="badge"><i class="fas fa-lock"></i> Privacy First</span>
+                                <span class="badge"><i class="fas fa-cogs"></i> Advanced Options</span>
+                            </div>
+                            <a href="#slug-generator" class="btn primary hero-cta">
+                                <i class="fas fa-rocket"></i> Try It Now
+                            </a>
+                        </div>
+                        <div class="hero-image">
+                            <div class="demo-window animate__animated animate__fadeIn">
+                                <div class="demo-header">
+                                    <div class="demo-controls">
+                                        <span class="demo-circle red"></span>
+                                        <span class="demo-circle yellow"></span>
+                                        <span class="demo-circle green"></span>
+                                    </div>
+                                    <div class="demo-title">Slugly Demo</div>
+                                </div>
+                                <div class="demo-content">
+                                    <div class="demo-input">
+                                        <span class="demo-label">Input:</span>
+                                        <span class="demo-text">How to Build a Modern Web App in 2025</span>
+                                    </div>
+                                    <div class="demo-output">
+                                        <span class="demo-label">Output:</span>
+                                        <span class="demo-text">how-to-build-modern-web-app-2025</span>
+                                    </div>
+                                    <div class="demo-options">
+                                        <span class="demo-option active"><i class="fas fa-check-circle"></i> Lowercase</span>
+                                        <span class="demo-option active"><i class="fas fa-check-circle"></i> Hyphens</span>
+                                        <span class="demo-option"><i class="fas fa-times-circle"></i> Stop Words</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slug-generator" class="generator-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Slug Generator</h2>
+                        <p class="section-subtitle">Transform any text into a perfect URL slug with advanced options</p>
+                    </div>
+                    
+                    <div class="generator-container">
+                        <div class="input-panel">
+                            <div class="panel-header">
+                                <h3>Input Text</h3>
+                                <div class="character-count" id="input-count">0 characters</div>
+                            </div>
+                            <textarea id="input-text" placeholder="Paste your article title, blog post name, or any text here..." autofocus></textarea>
+                        </div>
+                        
+                        <div class="options-panel">
+                            <div class="options-group">
+                                <h4 class="options-title">Basic Transformations</h4>
+                                <div class="options-grid">
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="lowercase" checked>
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Convert to lowercase</span>
+                                    </label>
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="trim" checked>
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Trim whitespace</span>
+                                    </label>
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="remove-special" checked>
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Remove special chars</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="options-group">
+                                <h4 class="options-title">Word Separators</h4>
+                                <div class="options-grid">
+                                    <label class="option-radio">
+                                        <input type="radio" name="separator" id="dash-separator" checked>
+                                        <span class="radio-circle"></span>
+                                        <span class="option-label">Hyphen (-)</span>
+                                    </label>
+                                    <label class="option-radio">
+                                        <input type="radio" name="separator" id="underscore-separator">
+                                        <span class="radio-circle"></span>
+                                        <span class="option-label">Underscore (_)</span>
+                                    </label>
+                                    <label class="option-radio">
+                                        <input type="radio" name="separator" id="none-separator">
+                                        <span class="radio-circle"></span>
+                                        <span class="option-label">No separator</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="options-group">
+                                <h4 class="options-title">Advanced Options</h4>
+                                <div class="options-grid">
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="remove-stopwords">
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Remove stop words</span>
+                                    </label>
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="remove-numbers">
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Remove numbers</span>
+                                    </label>
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="preserve-case">
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Preserve camelCase</span>
+                                    </label>
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="smart-quotes">
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Convert smart quotes</span>
+                                    </label>
+                                    <label class="option-toggle">
+                                        <input type="checkbox" id="remove-accents">
+                                        <span class="toggle-slider"></span>
+                                        <span class="option-label">Remove accents</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <button id="copy-btn" class="btn primary">
+                                    <i class="far fa-copy"></i> Copy Slug
+                                </button>
+                                <button id="clear-btn" class="btn secondary">
+                                    <i class="fas fa-eraser"></i> Clear
+                                </button>
+                                <div class="tooltip">
+                                    <button id="share-btn" class="btn secondary">
+                                        <i class="fas fa-share-alt"></i> Share
+                                    </button>
+                                    <span class="tooltip-text">Coming Soon!</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="output-panel">
+                            <div class="panel-header">
+                                <h3>Generated Slug</h3>
+                                <div class="character-count" id="output-count">0 characters</div>
+                            </div>
+                            <div class="output-container">
+                                <textarea id="output-text" readonly></textarea>
+                                <div class="output-preview">
+                                    <span class="preview-label">URL Preview:</span>
+                                    <div class="url-preview" id="url-preview">
+                                        https://example.com/<span id="slug-preview">your-slug-will-appear-here</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="features-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Advanced Features</h2>
+                        <p class="section-subtitle">Everything you need to create perfect URL slugs</p>
+                    </div>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="feature-title">Real-time Processing</h3>
+                            <p class="feature-description">See changes instantly as you type or adjust options, with smooth animations for a polished experience.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <h3 class="feature-title">Granular Control</h3>
+                            <p class="feature-description">More than 10 transformation options to customize exactly how your slugs are generated.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Fully Responsive</h3>
+                            <p class="feature-description">Works perfectly on all devices from desktop to mobile with adaptive interface elements.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Privacy Focused</h3>
+                            <p class="feature-description">All processing happens in your browser—no data is sent to servers or stored anywhere.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="feature-title">Lightning Fast</h3>
+                            <p class="feature-description">Optimized algorithms process even long texts instantly without lag or delay.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3 class="feature-title">Modern UI</h3>
+                            <p class="feature-description">Clean, professional interface with attention to detail and smooth animations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="how-it-works-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">How It Works</h2>
+                        <p class="section-subtitle">Three simple steps to perfect slugs</p>
+                    </div>
+                    
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Enter Your Text</h3>
+                                <p class="step-description">Paste or type any text you want to convert into a URL slug. This could be an article title, product name, or any other text.</p>
+                            </div>
+                            <div class="step-visual">
+                                <div class="visual-box input-visual">
+                                    <div class="visual-header">Input</div>
+                                    <div class="visual-content">My Awesome Blog Post</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Customize Options</h3>
+                                <p class="step-description">Select from various transformation options to tailor the slug exactly to your needs. Toggle settings in real-time.</p>
+                            </div>
+                            <div class="step-visual">
+                                <div class="visual-box options-visual">
+                                    <div class="visual-header">Options</div>
+                                    <div class="visual-options">
+                                        <div class="visual-option active">Lowercase</div>
+                                        <div class="visual-option active">Hyphens</div>
+                                        <div class="visual-option">Stop Words</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Use Your Slug</h3>
+                                <p class="step-description">Copy the generated slug and use it in your website, blog, or application. Perfect for SEO and human-readable URLs.</p>
+                            </div>
+                            <div class="step-visual">
+                                <div class="visual-box output-visual">
+                                    <div class="visual-header">Output</div>
+                                    <div class="visual-content">my-awesome-blog-post</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="documentation" class="documentation-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Documentation</h2>
+                        <p class="section-subtitle">Learn about all available options and best practices</p>
+                    </div>
+                    
+                    <div class="docs-container">
+                        <div class="docs-sidebar">
+                            <div class="sidebar-menu">
+                                <a href="#options-reference" class="menu-item active">Options Reference</a>
+                                <a href="#seo-best-practices" class="menu-item">SEO Best Practices</a>
+                                <a href="#faqs" class="menu-item">FAQs</a>
+                                <a href="#examples" class="menu-item">Examples</a>
+                            </div>
+                        </div>
+                        
+                        <div class="docs-content">
+                            <article id="options-reference" class="doc-article">
+                                <h3 class="article-title">Options Reference</h3>
+                                <p class="article-intro">All available transformation options explained in detail:</p>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Convert to lowercase</h4>
+                                    <p class="option-description">Converts all characters to lowercase, which is recommended for URLs as they are case-sensitive and lowercase is more consistent.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">Blog-Post-Title</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">blog-post-title</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Trim whitespace</h4>
+                                    <p class="option-description">Removes any leading or trailing whitespace from the input text before processing.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">"  hello world  "</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">"hello world"</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Remove special characters</h4>
+                                    <p class="option-description">Removes characters that are not alphanumeric or whitespace, creating cleaner URLs. This includes punctuation and symbols.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">Hello! @World#</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">hello-world</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Word separators</h4>
+                                    <p class="option-description">Choose how words are separated in the final slug. Hyphens are recommended for SEO as they're treated as word separators by search engines.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Examples:</span>
+                                        <div class="example-group">
+                                            <div class="example-item">
+                                                <span class="example-type">Hyphen:</span>
+                                                <span class="example-result">hello-world</span>
+                                            </div>
+                                            <div class="example-item">
+                                                <span class="example-type">Underscore:</span>
+                                                <span class="example-result">hello_world</span>
+                                            </div>
+                                            <div class="example-item">
+                                                <span class="example-type">None:</span>
+                                                <span class="example-result">helloworld</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Remove stop words</h4>
+                                    <p class="option-description">Removes common words (a, an, the, etc.) that don't add significant meaning to the URL for SEO purposes.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">the-best-ways-to-learn-coding</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">best-ways-learn-coding</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Remove numbers</h4>
+                                    <p class="option-description">Removes all numeric characters from the slug. Useful when numbers aren't meaningful to the content.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">top-10-recipes-2025</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">top-recipes</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Preserve camelCase</h4>
+                                    <p class="option-description">Maintains camelCase words in the output when combined with lowercase conversion. Useful for programming-related slugs.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">ReactComponentExample</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">reactComponentExample</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Convert smart quotes</h4>
+                                    <p class="option-description">Converts curly quotes and apostrophes to their straight equivalents for better URL compatibility.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">Don't use “smart” quotes</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">dont-use-smart-quotes</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="option-doc">
+                                    <h4 class="option-title">Remove accents</h4>
+                                    <p class="option-description">Converts accented characters to their ASCII equivalents. Useful for international content.</p>
+                                    <div class="option-example">
+                                        <span class="example-label">Example:</span>
+                                        <span class="example-before">café-über-élite</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="example-after">cafe-uber-elite</span>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article id="seo-best-practices" class="doc-article">
+                                <h3 class="article-title">SEO Best Practices for URL Slugs</h3>
+                                <p class="article-intro">Follow these guidelines to create slugs that are both search engine and user friendly:</p>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">1. Keep it concise</h4>
+                                    <p class="practice-description">Aim for slugs that are 3-5 words or 50-60 characters long. Shorter URLs are easier to read, share, and may perform better in search results.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">2. Use relevant keywords</h4>
+                                    <p class="practice-description">Include the main keywords that describe your page content. Place the most important words first.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">3. Hyphenate words</h4>
+                                    <p class="practice-description">Use hyphens (-) to separate words, not underscores (_). Search engines treat hyphens as word separators but group words connected by underscores.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">4. Use lowercase consistently</h4>
+                                    <p class="practice-description">URLs are case-sensitive, and using lowercase exclusively prevents confusion and duplicate content issues.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">5. Remove unnecessary elements</h4>
+                                    <p class="practice-description">Eliminate stop words (a, an, the), dates, and numbers unless they're essential to the content.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">6. Make it readable</h4>
+                                    <p class="practice-description">Create slugs that humans can easily read and understand at a glance. Avoid random strings of characters.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">7. Avoid special characters</h4>
+                                    <p class="practice-description">Stick to letters, numbers, and hyphens. Other characters may need URL encoding and make links harder to share.</p>
+                                </div>
+                                
+                                <div class="best-practice">
+                                    <h4 class="practice-title">8. Be consistent</h4>
+                                    <p class="practice-description">Establish a pattern for your slugs and stick to it across your entire website for better user experience and SEO.</p>
+                                </div>
+                            </article>
+                            
+                            <article id="faqs" class="doc-article">
+                                <h3 class="article-title">Frequently Asked Questions</h3>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question">What is a URL slug?</h4>
+                                    <div class="faq-answer">
+                                        <p>A URL slug is the part of a URL that identifies a particular page on a website in a human-readable form. It typically appears after the domain name and is used for SEO and user experience purposes.</p>
+                                        <p>Example: In "https://example.com/blog/perfect-url-slugs", "perfect-url-slugs" is the slug.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question">Why should I use Slugly instead of manual slugs?</h4>
+                                    <div class="faq-answer">
+                                        <p>Slugly ensures your slugs follow SEO best practices consistently, handles special characters and edge cases properly, and saves you time by automating the process. It also provides multiple customization options that would be time-consuming to implement manually.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question">Is my data secure when using Slugly?</h4>
+                                    <div class="faq-answer">
+                                        <p>Absolutely! Slugly processes all text entirely in your browser. No data is sent to any servers or stored anywhere. Your content never leaves your device.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question">Can I use Slugly for non-English text?</h4>
+                                    <div class="faq-answer">
+                                        <p>Yes, Slugly handles international characters. The "Remove accents" option can convert accented characters to their ASCII equivalents for better URL compatibility.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question">What's the difference between hyphen and underscore separators?</h4>
+                                    <div class="faq-answer">
+                                        <p>Search engines treat hyphens (-) as word separators, meaning "hello-world" is interpreted as two words. Underscores (_) are treated as connectors, so "hello_world" is seen as one word. For SEO, hyphens are generally preferred.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question">Should I remove stop words from my slugs?</h4>
+                                    <div class="faq-answer">
+                                        <p>Removing stop words (a, an, the, etc.) can make slugs more concise, but consider readability. For short slugs, keeping stop words might make them more natural. For longer slugs, removing them can help focus on keywords.</p>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article id="examples" class="doc-article">
+                                <h3 class="article-title">Examples</h3>
+                                <p class="article-intro">See how different inputs transform with various options:</p>
+                                
+                                <div class="examples-grid">
+                                    <div class="example-card">
+                                        <div class="example-input">The Ultimate Guide to Web Development in 2025</div>
+                                        <div class="example-options">
+                                            <span class="option-used">Lowercase</span>
+                                            <span class="option-used">Hyphens</span>
+                                            <span class="option-used">Trim</span>
+                                        </div>
+                                        <div class="example-output">the-ultimate-guide-to-web-development-in-2025</div>
+                                    </div>
+                                    
+                                    <div class="example-card">
+                                        <div class="example-input">The Ultimate Guide to Web Development in 2025</div>
+                                        <div class="example-options">
+                                            <span class="option-used">Lowercase</span>
+                                            <span class="option-used">Hyphens</span>
+                                            <span class="option-used">Trim</span>
+                                            <span class="option-used">No Stop Words</span>
+                                        </div>
+                                        <div class="example-output">ultimate-guide-web-development-2025</div>
+                                    </div>
+                                    
+                                    <div class="example-card">
+                                        <div class="example-input">The Ultimate Guide to Web Development in 2025</div>
+                                        <div class="example-options">
+                                            <span class="option-used">Lowercase</span>
+                                            <span class="option-used">Hyphens</span>
+                                            <span class="option-used">Trim</span>
+                                            <span class="option-used">No Stop Words</span>
+                                            <span class="option-used">No Numbers</span>
+                                        </div>
+                                        <div class="example-output">ultimate-guide-web-development</div>
+                                    </div>
+                                    
+                                    <div class="example-card">
+                                        <div class="example-input">React: Advanced Component Patterns</div>
+                                        <div class="example-options">
+                                            <span class="option-used">Lowercase</span>
+                                            <span class="option-used">Hyphens</span>
+                                            <span class="option-used">Trim</span>
+                                            <span class="option-used">Preserve Case</span>
+                                        </div>
+                                        <div class="example-output">react-advanced-component-patterns</div>
+                                    </div>
+                                    
+                                    <div class="example-card">
+                                        <div class="example-input">Why Café au Lait is Better than Regular Coffee</div>
+                                        <div class="example-options">
+                                            <span class="option-used">Lowercase</span>
+                                            <span class="option-used">Hyphens</span>
+                                            <span class="option-used">Trim</span>
+                                            <span class="option-used">Remove Accents</span>
+                                        </div>
+                                        <div class="example-output">why-cafe-au-lait-is-better-than-regular-coffee</div>
+                                    </div>
+                                    
+                                    <div class="example-card">
+                                        <div class="example-input">Top 10 JavaScript Frameworks to Learn in '25</div>
+                                        <div class="example-options">
+                                            <span class="option-used">Lowercase</span>
+                                            <span class="option-used">Hyphens</span>
+                                            <span class="option-used">Trim</span>
+                                            <span class="option-used">Smart Quotes</span>
+                                        </div>
+                                        <div class="example-output">top-10-javascript-frameworks-to-learn-in-25</div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <span class="logo-icon">🔗</span>
+                            <h3>Slugly</h3>
+                        </div>
+                        <p class="footer-tagline">The smartest URL slug generator</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4 class="links-title">Product</h4>
+                            <a href="#features" class="footer-link">Features</a>
+                            <a href="#how-it-works" class="footer-link">How It Works</a>
+                            <a href="#documentation" class="footer-link">Documentation</a>
+                        </div>
+                        
+                        <!-- [ add more link group ] -->
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="social-links">
+                        <a href="https://x.com/riturajps" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://telegram.me/riturajps" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="https://github.com/theriturajps" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/iamriturajps" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    
+                    <div class="copyright">
+                        &copy; <span id="current-year"></span> Slugly. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
+    <script src="script.js"></script>
+    
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Slugly",
+        "url": "https://slugly.github.io/",
+        "description": "The most advanced URL slug generator online. Create perfect, SEO-friendly slugs in real-time with multiple customization options.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Slugly"
+        }
+    }
+    </script>
+</body>
+</html>
